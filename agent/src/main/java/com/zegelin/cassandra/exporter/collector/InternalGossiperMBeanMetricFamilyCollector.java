@@ -40,7 +40,7 @@ public class InternalGossiperMBeanMetricFamilyCollector extends GossiperMBeanMet
             final InetAddress endpointAddress = endpoint.getAddress();
             final EndpointState state = gossiper.getEndpointStateForEndpoint(endpoint);
 
-            final Labels labels = metadataFactory.endpointLabels(endpointAddress);
+            final Labels labels = metadataFactory.endpointLabels(endpoint.address);
 
             generationNumberMetrics.add(new NumericMetric(labels, gossiper.getCurrentGenerationNumber(endpoint)));
             downtimeMetrics.add(new NumericMetric(labels, millisecondsToSeconds(gossiper.getEndpointDowntime(endpoint))));
