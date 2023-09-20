@@ -28,7 +28,10 @@ jobs:
           root: /tmp/artifacts
           paths:
             - "*.jar"
-
+      - store_artifacts:
+        path: /tmp/artifacts
+        paths:
+            - "*.jar"
   publish-github-release:
     docker:
       - image: circleci/golang:1.13
