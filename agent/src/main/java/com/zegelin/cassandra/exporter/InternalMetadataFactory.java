@@ -88,6 +88,6 @@ public class InternalMetadataFactory extends MetadataFactory {
 
     @Override
     public InetAddress localBroadcastAddress() {
-        return FBUtilities.getBroadcastAddressAndPort().toString(false);
+        return FBUtilities.getBroadcastAddressAndPort().getAddress();
     }
 }

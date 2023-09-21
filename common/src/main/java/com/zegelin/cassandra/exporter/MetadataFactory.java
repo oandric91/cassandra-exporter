@@ -68,7 +68,9 @@ public abstract class MetadataFactory {
     }
 
     public Labels endpointLabels(final String endpoint) {
-        return endpointLabels(InetAddresses.forString(endpoint));
+        // hacky workaround to fix https://github.com/instaclustr/cassandra-exporter/issues/112
+        String[] parts = endpoint.split("_");
+        return endpointLabels(InetAddresses.forString(parts[0]));
     }
 
     public abstract String clusterName();
