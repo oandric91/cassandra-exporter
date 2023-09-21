@@ -52,7 +52,7 @@ workflows:
       - build:
           filters:
             tags:
-              only: /^v\d+\.\d+\.\d+$/
+              only: /.*/
       - publish-github-release:
           requires:
             - build
@@ -60,4 +60,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^v\d+\.\d+\.\d+$/
+              only: /.*/
