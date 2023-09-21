@@ -4,6 +4,11 @@
 
 *Project Status: beta*
 
+This fork should fix the exporter for cassandra version 4.1.2. 
+Solved issues:
+* https://github.com/instaclustr/cassandra-exporter/issues/83
+* https://github.com/instaclustr/cassandra-exporter/issues/112
+
 # Note - The Cassandra-Exporter tool does not support all versions of Cassandra, see the compatibility section for more details on supported versions.
 
 
@@ -37,15 +42,16 @@ For example, the following PromQL query will return an estimate of the number of
 
 *cassandra-exporter* is now Cassandra 4.0+ compatible, but the change is not a backwards compatible. Support for older Cassandra versions is via the older releases, as follows:
 
-| Cassandra Version | Compatible Exporter Version |
-|-----------------|---------------|
-| Apache Cassandra 4.x  | 0.9.12 |
-| Apache Cassandra 3.0.17, 3.11.2, 3.11.3 | 0.9.11 |
+| Cassandra Version                       | Compatible Exporter Version |
+|-----------------------------------------|-----------------------------|
+| Apache Cassandra 4.1.2                  | 0.9.13                      |
+| Apache Cassandra 4.x                    | 0.9.12                      |
+| Apache Cassandra 3.0.17, 3.11.2, 3.11.3 | 0.9.11                      |
+
 
 | Prometheus Version |
-|-----------------|
-| 2.42.0 
-|
+|--------------------|
+| 2.42.0             |
 Other Cassandra and Prometheus versions will be tested for compatibility in the future.
 
 ## Usage
@@ -356,20 +362,20 @@ These metrics can then be queried:
     sum(cassandra_table_operation_latency_seconds_count) by (keyspace, operation) # total operations by keyspace & type
 
 
-Element                                              | Value
----------------------------------------------------- |------
-`{keyspace="system",operation="write"}`              | 13989
-`{keyspace="system",operation="cas_commit"}`         | 0
-`{keyspace="system",operation="cas_prepare"}`        | 0
-`{keyspace="system",operation="cas_propose"}`        | 0
-`{keyspace="system",operation="range_read"}`         | 10894
-`{keyspace="system",operation="read"}`               | 74
-`{keyspace="system_schema",operation="write"}`       | 78
-`{keyspace="system_schema",operation="cas_commit"}`  | 0
-`{keyspace="system_schema",operation="cas_prepare"}` | 0
-`{keyspace="system_schema",operation="cas_propose"}` | 0
-`{keyspace="system_schema",operation="range_read"}`  | 75
-`{keyspace="system_schema",operation="read"}`        | 618
+|Element                                              | Value  |
+|---------------------------------------------------- |--------|
+|`{keyspace="system",operation="write"}`              | 13989  |
+|`{keyspace="system",operation="cas_commit"}`         | 0      |
+|`{keyspace="system",operation="cas_prepare"}`        | 0      |
+|`{keyspace="system",operation="cas_propose"}`        | 0      |
+|`{keyspace="system",operation="range_read"}`         | 10894  |
+|`{keyspace="system",operation="read"}`               | 74     |
+|`{keyspace="system_schema",operation="write"}`       | 78     |
+|`{keyspace="system_schema",operation="cas_commit"}`  | 0      |
+|`{keyspace="system_schema",operation="cas_prepare"}` | 0      |
+|`{keyspace="system_schema",operation="cas_propose"}` | 0      |
+|`{keyspace="system_schema",operation="range_read"}`  | 75     |
+|`{keyspace="system_schema",operation="read"}`        | 618    |
 
 
 ### Global Labels
