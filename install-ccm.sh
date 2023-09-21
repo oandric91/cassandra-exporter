@@ -2,7 +2,7 @@
 
 HERE="$(dirname "$(readlink -f "$0")")"
 
-AGENT="$HERE/agent/target/cassandra-exporter-agent-0.9.11-SNAPSHOT.jar"
+AGENT="$HERE/agent/target/cassandra-exporter-agent-0.9.13.jar"
 
 find . -path '*/node*/conf/cassandra-env.sh' | while read file; do
     echo "Processing $file"
