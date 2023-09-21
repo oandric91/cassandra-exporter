@@ -153,7 +153,7 @@ def with_ccm_cluster():
             "Cassandra",
             cloup.option('--cluster-name', 'cassandra_cluster_name', default='test-cluster', show_default=True,
                          help='name of the Cassandra cluster'),
-            cloup.option('--cassandra-version', default='4.1.0', show_default=True,
+            cloup.option('--cassandra-version', default='4.1.2', show_default=True,
                          help='Cassandra version to run'),
             cloup.option('--topology', 'cassandra_topology',
                          type=(int, int, int), default=(2, 3, 1), show_default=True,
